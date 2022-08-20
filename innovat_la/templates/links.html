@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block title %}Links{% endblock %}
+
+{% block content %}
+
+<form class=mt-3 action="" method="post">
+  <div class="container-fluid">
+    <div class="input-group mb-3">
+        <div class="input-group mb-3">
+            <input name="input" type="text" class="form-control form-control-lg" placeholder="Insira o novo link" id="input" aria-label="Insira o novo link" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Inserir</button>
+        </div>
+    </div>
+</form>
+
+<div class="row py-4">
+  {% for link in links %}
+    {% if link['link'] %}
+      <div class="col-md-4">
+        <div class="shadow p-3 mb-5 bg-white rounded py-4 px-4">
+            <h6 class="justify-left text-left"><a href=https://{{ link['link'] }}>{{ link['link'] }}</a></h6>
+            <span><a href="/deleteLink/{{ link['link'] }}">Excluir</a></span>
+        </div>
+      </div>
+    {% endif %}
+  {%endfor%}
+</div>
+
+{% endblock %}

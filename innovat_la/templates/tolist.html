@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% block title %}A fazeres{% endblock %}
+
+{% block content %}
+
+<form class=mt-3 action="" method="post">
+  <div class="container-fluid">
+    <div class="input-group mb-3">
+        <div class="input-group mb-3">
+            <input name="input" type="text" class="form-control form-control-lg" placeholder="Inserir atividade" id="input" aria-label="Inserir atividade" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Inserir</button>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Data</th>
+      <th scope="col">Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for active in ativ_list %}
+      <tr>
+        <td><h5>{{ active['nome_active'] }}</h5></td>
+        <td>{{ active['data'] }}</td>
+        <td><a href="/deleteActive/{{ active['nome_active'] }}">Excluir</a></td>
+      </tr>
+      {%endfor%}
+  </tbody>
+</table>
+
+{% endblock %}
